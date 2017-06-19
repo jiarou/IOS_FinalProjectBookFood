@@ -14,7 +14,7 @@ class member: UIViewController {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-
+    var ref: DatabaseReference!
     
     @IBAction func submit(_ sender: Any) {
         if self.email.text == "" || self.password.text == "" {
@@ -33,11 +33,18 @@ class member: UIViewController {
             Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
                 
                 if error == nil {
-                    
+                    if(self.email.text?.contains("store"))!{
+                        self.ref = Database.database().reference()
+                        self.ref.child("users").child((self.email.text?.replacingOccurrences(of: ".", with: ","))!).setValue(["password": self.password.text])
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Backend")
+                        self.present(vc!, animated: true, completion: nil)
+                    }
+                    else{
                     print("You have successfully logged in")
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)
+                    }
                     
                 } else {
                     

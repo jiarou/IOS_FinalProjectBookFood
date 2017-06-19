@@ -1,14 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2B548D5DCEE1DE58A3B219B25107AF0505D51B32",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "478786C0E57D74FA3135A3B2488D5FABDC3A82DD",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "478786C0E57D74FA3135A3B2488D5FABDC3A82DD" : 9223372036854775807,
     "537A4DC98A374E0E6E309E1314888454B2A6D35A" : 9223372036854775807,
     "2B548D5DCEE1DE58A3B219B25107AF0505D51B32" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "35A966A8-DA5A-4BF5-9110-DDE39FDD8F2C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "478786C0E57D74FA3135A3B2488D5FABDC3A82DD" : "iOS_finalProject-jimmy\/",
     "537A4DC98A374E0E6E309E1314888454B2A6D35A" : "",
     "2B548D5DCEE1DE58A3B219B25107AF0505D51B32" : "iOS_finalProject-master\/"
   },
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jiarou\/iOS_finalProject.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2B548D5DCEE1DE58A3B219B25107AF0505D51B32"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cye2277\/iOS_finalProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "478786C0E57D74FA3135A3B2488D5FABDC3A82DD"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nick66551\/newmediawall.git",
