@@ -18,11 +18,14 @@ class ViewController: UIViewController {
 
     var userName : String = ""
     var userEmail : String = ""
+    var brandName : String = ""
+    var admin : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.Name.text = userName
-        
+        checkAdmin()
+        print(self.brandName)
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +38,14 @@ class ViewController: UIViewController {
             memberData.userEmail = self.userEmail
         }
         
+    }
+    func checkAdmin(){
+        if(self.admin==true){
+           // let backend = segue.destination as! BackendViewController
+           // backend.brandName =self.brandName
+           // let vc = self.storyboard?.instantiateViewController(withIdentifier: "Backend")
+           // self.present(vc!, animated: true, completion: nil)
+        }
     }
 
 

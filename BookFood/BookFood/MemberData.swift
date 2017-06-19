@@ -37,14 +37,6 @@ class MemberData: UIViewController {
     func loadData(){
         self.ref = Database.database().reference()
         self.userEmail = self.userEmail.replacingOccurrences(of: ".", with: ",")
-        print(self.userEmail)
-        self.ref.child("users").child(self.userEmail).observeSingleEvent(of: .value, with: { snapshot in
-            if !snapshot.exists() { return }
-            let value = snapshot.value as? NSDictionary
-            self.email.text = self.userEmail
-            self.phone.text = value?["phone"] as? String ?? ""
-            self.address.text = value?["address"] as? String ?? ""
-        })
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Home"{
