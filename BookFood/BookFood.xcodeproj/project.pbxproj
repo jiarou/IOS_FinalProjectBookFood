@@ -39,6 +39,10 @@
 		48B490F51EB8E7DE00C8C7DE /* FoodMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B490F41EB8E7DE00C8C7DE /* FoodMap.swift */; };
 		48B490F71EB8EAAF00C8C7DE /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B490F61EB8EAAF00C8C7DE /* RestaurantList.swift */; };
 		48B490F91EB8EBE700C8C7DE /* member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B490F81EB8EBE700C8C7DE /* member.swift */; };
+		48E958071EF7B98800A18D7B /* ListOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E958061EF7B98800A18D7B /* ListOrderTableViewController.swift */; };
+		48E958091EF7B9C000A18D7B /* ListOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E958081EF7B9C000A18D7B /* ListOrderTableViewCell.swift */; };
+		48E9580B1EF7BA5D00A18D7B /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9580A1EF7BA5D00A18D7B /* ItemsTableViewController.swift */; };
+		48E9580D1EF7BA8D00A18D7B /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E9580C1EF7BA8D00A18D7B /* OrderTableViewCell.swift */; };
 		48F7A10A1EE967D800F65BFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48F7A1091EE967D800F65BFE /* GoogleService-Info.plist */; };
 		48F7A10E1EE9800C00F65BFE /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F7A10D1EE9800C00F65BFE /* RestaurantViewController.swift */; };
 		48F7A1101EE9808F00F65BFE /* RestaurantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F7A10F1EE9808F00F65BFE /* RestaurantCollectionViewCell.swift */; };
@@ -108,6 +112,10 @@
 		48B490F41EB8E7DE00C8C7DE /* FoodMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodMap.swift; sourceTree = "<group>"; };
 		48B490F61EB8EAAF00C8C7DE /* RestaurantList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 		48B490F81EB8EBE700C8C7DE /* member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = member.swift; sourceTree = "<group>"; };
+		48E958061EF7B98800A18D7B /* ListOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderTableViewController.swift; sourceTree = "<group>"; };
+		48E958081EF7B9C000A18D7B /* ListOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOrderTableViewCell.swift; sourceTree = "<group>"; };
+		48E9580A1EF7BA5D00A18D7B /* ItemsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
+		48E9580C1EF7BA8D00A18D7B /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		48F7A1091EE967D800F65BFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		48F7A10D1EE9800C00F65BFE /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		48F7A10F1EE9808F00F65BFE /* RestaurantCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -219,6 +227,10 @@
 				042543CC1EF11FBE000943BE /* Images.xcassets */,
 				042543CD1EF11FBE000943BE /* Project-Bridging-Header.h */,
 				042543CE1EF11FBE000943BE /* SwiftSpinner.swift */,
+				48E958061EF7B98800A18D7B /* ListOrderTableViewController.swift */,
+				48E958081EF7B9C000A18D7B /* ListOrderTableViewCell.swift */,
+				48E9580A1EF7BA5D00A18D7B /* ItemsTableViewController.swift */,
+				48E9580C1EF7BA8D00A18D7B /* OrderTableViewCell.swift */,
 			);
 			path = BookFood;
 			sourceTree = "<group>";
@@ -331,8 +343,7 @@
 				TargetAttributes = {
 					48B490BF1EB8E7AE00C8C7DE = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 59ES3DWZC6;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					48B490D61EB8E7AE00C8C7DE = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -540,8 +551,11 @@
 			files = (
 				48B490F71EB8EAAF00C8C7DE /* RestaurantList.swift in Sources */,
 				042543DE1EF11FBE000943BE /* SwiftSpinner.swift in Sources */,
+				48E9580B1EF7BA5D00A18D7B /* ItemsTableViewController.swift in Sources */,
 				042543D61EF11FBE000943BE /* ProductsListTableViewCell.swift in Sources */,
+				48E958091EF7B9C000A18D7B /* ListOrderTableViewCell.swift in Sources */,
 				F719BA9E1EF0052300DEFCBE /* MemberData.swift in Sources */,
+				48E958071EF7B98800A18D7B /* ListOrderTableViewController.swift in Sources */,
 				48F7A10E1EE9800C00F65BFE /* RestaurantViewController.swift in Sources */,
 				042543D01EF11FBE000943BE /* ProductListTableViewController.swift in Sources */,
 				48803DFF1EB9AB7200EDA617 /* CheckOrder.swift in Sources */,
@@ -562,6 +576,7 @@
 				042543D81EF11FBE000943BE /* TextEntryTableViewCell.swift in Sources */,
 				48B490F51EB8E7DE00C8C7DE /* FoodMap.swift in Sources */,
 				48F7A1101EE9808F00F65BFE /* RestaurantCollectionViewCell.swift in Sources */,
+				48E9580D1EF7BA8D00A18D7B /* OrderTableViewCell.swift in Sources */,
 				042543CF1EF11FBE000943BE /* CollectionsViewController.swift in Sources */,
 				042543D91EF11FBE000943BE /* ContinueButtonTableViewCell.swift in Sources */,
 				48B490C41EB8E7AE00C8C7DE /* AppDelegate.swift in Sources */,
@@ -717,11 +732,12 @@
 			baseConfigurationReference = 35C43A552A669B136C2A666B /* Pods-BookFood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 59ES3DWZC6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BookFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NCCC.BookFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BookFood/Project-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -732,11 +748,12 @@
 			baseConfigurationReference = E60FA9940EDDC41F37861BE0 /* Pods-BookFood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 59ES3DWZC6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BookFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NCCC.BookFood;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BookFood/Project-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
