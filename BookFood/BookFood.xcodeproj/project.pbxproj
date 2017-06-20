@@ -29,6 +29,7 @@
 		485B52071EF97B2A00E4C751 /* UserOrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B52061EF97B2A00E4C751 /* UserOrderListTableViewController.swift */; };
 		485B52091EF97B8100E4C751 /* UserOrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B52081EF97B8100E4C751 /* UserOrderListTableViewCell.swift */; };
 		485B520B1EF97C5500E4C751 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B520A1EF97C5500E4C751 /* UserTableViewCell.swift */; };
+		485B520D1EF9ABD100E4C751 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B520C1EF9ABD100E4C751 /* StatusTableViewCell.swift */; };
 		48803DFB1EB9A8FA00EDA617 /* RestaurantInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48803DFA1EB9A8FA00EDA617 /* RestaurantInformation.swift */; };
 		48803DFD1EB9AB0C00EDA617 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48803DFC1EB9AB0C00EDA617 /* Booking.swift */; };
 		48803DFF1EB9AB7200EDA617 /* CheckOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48803DFE1EB9AB7200EDA617 /* CheckOrder.swift */; };
@@ -101,6 +102,7 @@
 		485B52061EF97B2A00E4C751 /* UserOrderListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOrderListTableViewController.swift; sourceTree = "<group>"; };
 		485B52081EF97B8100E4C751 /* UserOrderListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserOrderListTableViewCell.swift; sourceTree = "<group>"; };
 		485B520A1EF97C5500E4C751 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		485B520C1EF9ABD100E4C751 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		48803DFA1EB9A8FA00EDA617 /* RestaurantInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantInformation.swift; sourceTree = "<group>"; };
 		48803DFC1EB9AB0C00EDA617 /* Booking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		48803DFE1EB9AB7200EDA617 /* CheckOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOrder.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				48E9580C1EF7BA8D00A18D7B /* OrderTableViewCell.swift */,
 				485B52081EF97B8100E4C751 /* UserOrderListTableViewCell.swift */,
 				485B520A1EF97C5500E4C751 /* UserTableViewCell.swift */,
+				485B520C1EF9ABD100E4C751 /* StatusTableViewCell.swift */,
 			);
 			path = BookFood;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				48E958071EF7B98800A18D7B /* ListOrderTableViewController.swift in Sources */,
 				48F7A10E1EE9800C00F65BFE /* RestaurantViewController.swift in Sources */,
 				042543D01EF11FBE000943BE /* ProductListTableViewController.swift in Sources */,
+				485B520D1EF9ABD100E4C751 /* StatusTableViewCell.swift in Sources */,
 				48803DFF1EB9AB7200EDA617 /* CheckOrder.swift in Sources */,
 				48803DFD1EB9AB0C00EDA617 /* Booking.swift in Sources */,
 				485B52071EF97B2A00E4C751 /* UserOrderListTableViewController.swift in Sources */,

@@ -14,6 +14,8 @@ class OrderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var showProductMoney: UILabel!
     @IBOutlet weak var showProductNumber: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

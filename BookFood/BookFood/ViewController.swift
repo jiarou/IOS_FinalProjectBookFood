@@ -24,6 +24,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var admin : Bool = false
     var ref:DatabaseReference!
     var  orders = [String]()
+    var  status = [String]()
 
     
     override func viewDidLoad() {
@@ -37,21 +38,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         ref.observe(.childAdded, with: { (snapshot) in
             let key = snapshot.key as String
             // print(key)
-            self.ref.child(key).child("user").observe(.value, with: { (snapshot) in
+      
+                  self.ref.child(key).child("user").observe(.value, with: { (snapshot) in
                 var all_data = snapshot.value as? [String: AnyObject]
                 let firebaseEmail = all_data?["email"]
                 //print(firebaseEmail)
-                if  (firebaseEmail?.isEqual("125345678@123.com"))!   {
+                if  (firebaseEmail?.isEqual("test1@gmail.com"))!   {
                     self.orders.append(key)
                     print(key)
-                }
-                if self.orders != nil {
-                    OperationQueue.main.addOperation({
-                        self.mytable.reloadData()
-                    })
-                }
+        self.ref.child(key).child("orderStatus").observe(.value, with: { (snapshot) in
+        let getStatus = snapshot.value as? String
+            self.status.append(getStatus!)
+       print(self.status)
+            OperationQueue.main.addOperation({
+                self.mytable.reloadData()
             })
+                    })
+    }
+//    if self.orders != nil {
+//                    OperationQueue.main.addOperation({
+//                        self.mytable.reloadData()
+//                    })
+//                }
+  
+            })
+
         })
+
 
     }
     
@@ -98,7 +111,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserTableViewCell
         
-        cell.textLabel?.text = self.orders[indexPath.row]
+        cell.showOrder?.text = self.orders[indexPath.row]
+        cell.showStatus?.text = self.status[indexPath.row]
         
         return cell
     }

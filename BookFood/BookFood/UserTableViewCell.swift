@@ -9,6 +9,10 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var showOrder: UILabel!
+    
+    @IBOutlet weak var showStatus: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

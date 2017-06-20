@@ -10,13 +10,15 @@ import UIKit
 import Firebase
 import  FirebaseDatabase
 
+
 class ListOrderTableViewController: UITableViewController {
     var ref:DatabaseReference!
     var orders = [String]()
     var userNames = [String]()
     var userPhone = [String]()
+    var status = [String]()
     var order: String!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +27,13 @@ class ListOrderTableViewController: UITableViewController {
         
         ref.observe(.childAdded, with: { (snapshot) in
             let key = snapshot.key as String
-            self.ref.child(key).child("items").queryOrdered(byChild: "Band").queryEqual(toValue: "假面騎士").observe(.childAdded, with: { (snapshot) in
-                
-                print(self.orders)
-                if self.orders.contains(key)  {
-                    if let index = self.orders.index(of: key) {
-                        self.orders.remove(at: index)
-                        print(self.orders)
-                    }
+            self.ref.child(key).child("items").observe(.childAdded, with: { (snapshot) in
+                let data = snapshot.value as? [String: AnyObject]
+                print(data?["Brand"])
+                if (data?["Brand"]?.isEqual("佐世保"))!{
+                    self.orders.append(key)
                 }
-                self.orders.append(key)
+
                 print(key)
                 OperationQueue.main.addOperation({
                     self.tableView.reloadData()
@@ -65,6 +64,9 @@ class ListOrderTableViewController: UITableViewController {
         })
         
         
+        
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,6 +92,8 @@ class ListOrderTableViewController: UITableViewController {
         cell.showOrders?.text = orders[indexPath.row]
         cell.showUserName?.text = userNames[indexPath.row]
         cell.showUsePhone?.text = userPhone[indexPath.row]
+        
+        
         return cell
     }
     

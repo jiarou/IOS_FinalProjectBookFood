@@ -10,9 +10,11 @@ import UIKit
 
 class ListOrderTableViewCell: UITableViewCell {
 
+
      @IBOutlet weak var showOrders: UILabel!
         @IBOutlet weak var showUserName: UILabel!
        @IBOutlet weak var showUsePhone: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

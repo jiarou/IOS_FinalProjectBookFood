@@ -22,16 +22,27 @@ class ItemsTableViewController: UITableViewController {
         
     }
     
+    @IBAction func Reject(_ sender: Any) {
+        ref = Database.database().reference().child("order")
+        self.ref.child("order").child(gatOrderId).child("orderStatus").setValue("無法接單")
+    }
+    
+    @IBAction func Done(_ sender: Any) {
+    ref = Database.database().reference().child("order")
+        self.ref.child(gatOrderId).child("orderStatus").setValue("Done")
+    }
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
+       
         print(gatOrderId)
         //self.tableView.register(OrderTableViewCell.self, forCellReuseIdentifier: "Itemcell")
         ref = Database.database().reference().child("order")
-        ref.child(gatOrderId).child("items").queryOrdered(byChild: "Band").queryEqual(toValue: "假面騎士").observe(.childAdded, with: { (snapshot) in
-            //        var all_data = snapshot.value as? [String: AnyObject]
-            //        var firebase_naumber = all_data?.count
-            //        print(all_data)
+        ref.child(gatOrderId).child("items").observe(.childAdded, with: { (snapshot) in
+            let data = snapshot.value as? [String: AnyObject]
+           
+            if(data?["Brand"]?.isEqual("佐世保"))!{
             if let valueDictionary = snapshot.value as? [AnyHashable:String]
             {
                 let productName = valueDictionary["productName"]
@@ -40,12 +51,8 @@ class ItemsTableViewController: UITableViewController {
                 let productMoney = valueDictionary["productMoney"]
                 self.posts.insert(eventStruct(productName: productName, productNumber: productNumber, Band: Band,productMoney: productMoney), at: 0)
                 print(self.posts)
-                //Reload your tableView
-                //                DispatchQueue.global(qos: .background).async {
-                //                    self.tableView.reloadData()
-                //                    DispatchQueue.main.async {
-                //                        self.tableView.reloadData()
-                //                    }
+ 
+                }
                 OperationQueue.main.addOperation({
                     self.tableView.reloadData()
                 })
@@ -75,6 +82,10 @@ class ItemsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "Itemcell", for: indexPath) as! OrderTableViewCell
+    
+        
+  
+
         cell.showProductName?.text = posts[indexPath.row].productName!
         cell.showProductMoney?.text = posts[indexPath.row].productMoney!
         cell.showProductNumber?.text = posts[indexPath.row].productNumber!

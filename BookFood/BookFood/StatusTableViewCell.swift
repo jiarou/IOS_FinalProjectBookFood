@@ -10,6 +10,8 @@ import UIKit
 
 class StatusTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var status: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

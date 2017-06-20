@@ -26,9 +26,14 @@ class UserOrderListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(orderIdName)
-        self.title = orderIdName
-        
+        self.navigationItem.title = orderIdName
+        self.navigationController?.navigationBar.barTintColor =
+            UIColor.lightGray
+  
+
+      
         ref = Database.database().reference().child("order")
+  
         ref.child(orderIdName).child("items").observe(.childAdded, with: { (snapshot) in
             if let valueDictionary = snapshot.value as? [AnyHashable:String]
             {
