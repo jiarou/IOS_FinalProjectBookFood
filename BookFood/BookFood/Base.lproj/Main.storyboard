@@ -460,6 +460,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <mapView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="CJG-4V-yDT">
+                            <rect key="frame" x="0.0" y="82" width="375" height="308"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </mapView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="60" id="U8A-nB-yD0" customClass="ProductsListTableViewCell" customModule="BookFood" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="375" height="60"/>
@@ -516,6 +520,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="mapView" destination="CJG-4V-yDT" id="KuG-xr-SCN"/>
                         <segue destination="54S-Ts-a9o" kind="show" identifier="productDetailSegue" id="9zT-cY-YPL">
                             <nil key="action"/>
                         </segue>
@@ -523,7 +528,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zS7-Ib-hAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3273" y="-322"/>
+            <point key="canvasLocation" x="3272.8000000000002" y="-322.48875562218893"/>
         </scene>
         <!--Product Detail View Controller-->
         <scene sceneID="Q6j-Yq-chu">

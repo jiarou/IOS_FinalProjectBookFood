@@ -24,6 +24,8 @@
 		042543DC1EF11FBE000943BE /* String+Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042543CB1EF11FBE000943BE /* String+Numeric.swift */; };
 		042543DD1EF11FBE000943BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 042543CC1EF11FBE000943BE /* Images.xcassets */; };
 		042543DE1EF11FBE000943BE /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042543CE1EF11FBE000943BE /* SwiftSpinner.swift */; };
+		04D584F11EF9605000D0DA61 /* RestaurantMapData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D584EF1EF9605000D0DA61 /* RestaurantMapData.swift */; };
+		04D584F21EF9605000D0DA61 /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D584F01EF9605000D0DA61 /* VCMapView.swift */; };
 		48803DFB1EB9A8FA00EDA617 /* RestaurantInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48803DFA1EB9A8FA00EDA617 /* RestaurantInformation.swift */; };
 		48803DFD1EB9AB0C00EDA617 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48803DFC1EB9AB0C00EDA617 /* Booking.swift */; };
 		48803DFF1EB9AB7200EDA617 /* CheckOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48803DFE1EB9AB7200EDA617 /* CheckOrder.swift */; };
@@ -87,6 +89,8 @@
 		042543CC1EF11FBE000943BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		042543CD1EF11FBE000943BE /* Project-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project-Bridging-Header.h"; sourceTree = "<group>"; };
 		042543CE1EF11FBE000943BE /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
+		04D584EF1EF9605000D0DA61 /* RestaurantMapData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMapData.swift; sourceTree = "<group>"; };
+		04D584F01EF9605000D0DA61 /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		0898E91C533E93E1C31C4176 /* Pods_BookFoodUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookFoodUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C43A552A669B136C2A666B /* Pods-BookFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookFood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookFood/Pods-BookFood.debug.xcconfig"; sourceTree = "<group>"; };
 		432BFDFC825FD15E346F1DA3 /* Pods-BookFoodUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookFoodUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookFoodUITests/Pods-BookFoodUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				48B490D21EB8E7AE00C8C7DE /* Info.plist */,
 				48B490CA1EB8E7AE00C8C7DE /* BookFood.xcdatamodeld */,
 				48F7A1091EE967D800F65BFE /* GoogleService-Info.plist */,
+				04D584EF1EF9605000D0DA61 /* RestaurantMapData.swift */,
+				04D584F01EF9605000D0DA61 /* VCMapView.swift */,
 				48B490F41EB8E7DE00C8C7DE /* FoodMap.swift */,
 				48B490F61EB8EAAF00C8C7DE /* RestaurantList.swift */,
 				48B490F81EB8EBE700C8C7DE /* member.swift */,
@@ -561,6 +567,7 @@
 				48803DFF1EB9AB7200EDA617 /* CheckOrder.swift in Sources */,
 				48803DFD1EB9AB0C00EDA617 /* Booking.swift in Sources */,
 				042543D31EF11FBE000943BE /* AddressEntryTableViewController.swift in Sources */,
+				04D584F21EF9605000D0DA61 /* VCMapView.swift in Sources */,
 				042543D41EF11FBE000943BE /* PaymentViewController.swift in Sources */,
 				042543DB1EF11FBE000943BE /* AlertDialog.swift in Sources */,
 				F7327F081EEC5CFA0027ABA7 /* Register.swift in Sources */,
@@ -578,6 +585,7 @@
 				48F7A1101EE9808F00F65BFE /* RestaurantCollectionViewCell.swift in Sources */,
 				48E9580D1EF7BA8D00A18D7B /* OrderTableViewCell.swift in Sources */,
 				042543CF1EF11FBE000943BE /* CollectionsViewController.swift in Sources */,
+				04D584F11EF9605000D0DA61 /* RestaurantMapData.swift in Sources */,
 				042543D91EF11FBE000943BE /* ContinueButtonTableViewCell.swift in Sources */,
 				48B490C41EB8E7AE00C8C7DE /* AppDelegate.swift in Sources */,
 				042543D21EF11FBE000943BE /* CartViewController.swift in Sources */,

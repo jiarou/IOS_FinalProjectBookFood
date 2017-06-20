@@ -294,6 +294,7 @@ class PaymentViewController: UITableViewController, TextEntryTableViewCellDelega
                     timeToWait = obj["time_to_wait"] as! Int
                 }
             }
+            
             self.ref.child("order").child(orderID).child("timeToWait").setValue(timeToWait)
 
             var cartforreal: Dictionary<String, Any> = [:]
