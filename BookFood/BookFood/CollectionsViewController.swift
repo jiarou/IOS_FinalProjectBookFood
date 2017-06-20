@@ -119,8 +119,14 @@ class CollectionsViewController: UIViewController, UITableViewDataSource, UITabl
             // Set up products list view!
             let newViewController = segue.destination as! ProductListTableViewController
             
+            
             newViewController.title = selectedRestaurantDict!.value(forKey: "title") as? String
             newViewController.restaurantId = selectedRestaurantDict!.value(forKeyPath: "id") as? String
+            newViewController.positionX = selectedRestaurantDict!.value(forKeyPath: "positionx") as? String
+            newViewController.positionY = selectedRestaurantDict!.value(forKeyPath: "positiony") as? String
+            newViewController.des = selectedRestaurantDict!.value(forKeyPath: "description") as? String
+            newViewController.brandName = selectedRestaurantDict!.value(forKeyPath: "title") as? String
+
             
         }
         

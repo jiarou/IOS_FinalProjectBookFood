@@ -8,6 +8,8 @@
 
 import UIKit
 import Moltin
+import MapKit
+
 
 class ProductDetailViewController: UIViewController {
     
@@ -17,11 +19,14 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productImageView:UIImageView?
     @IBOutlet weak var buyButton:UIButton?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         buyButton?.backgroundColor = MOLTIN_COLOR
         
+        
+
         // Do any additional setup after loading the view.
         if let description = productDict!.value(forKey: "description") as? String {
             self.descriptionTextView?.text = description

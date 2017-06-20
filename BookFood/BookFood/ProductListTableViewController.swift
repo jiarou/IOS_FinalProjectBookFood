@@ -8,12 +8,14 @@
 
 import UIKit
 import Moltin
+import MapKit
 
 class ProductListTableViewController: UITableViewController {
     
     fileprivate let CELL_REUSE_IDENTIFIER = "ProductCell"
     
     fileprivate let PRODUCT_DETAIL_VIEW_SEGUE_IDENTIFIER = "productDetailSegue"
+    
     
     fileprivate var products:NSMutableArray = NSMutableArray()
     
@@ -25,10 +27,29 @@ class ProductListTableViewController: UITableViewController {
     
     var restaurantId:String?
     
+    var positionX:String?
+    var positionY:String?
+    var des: String?
+    var brandName: String?
+    
+    @IBOutlet weak var mapView: MKMapView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadProducts(true)
+        
+        let initialLocation = CLLocation(latitude: Double(self.positionX!)!, longitude: Double(self.positionY!)!)
+        let regionRadius: CLLocationDistance = 1000
+        loadProducts(true)
+        centerMapOnLocation(location: initialLocation,regionRadius: regionRadius)
+        let mapData = RestaurantMapData(title: self.brandName!,
+                                        locationName: self.des!,
+                                        discipline: "Restaruant",
+                                        coordinate: CLLocationCoordinate2D(latitude: Double(self.positionX!)!, longitude: Double(self.positionY!)!))
+        
+        mapView.addAnnotation(mapData)
         
     }
     
@@ -78,6 +99,11 @@ class ProductListTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func centerMapOnLocation(location: CLLocation, regionRadius: CLLocationDistance) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
     // MARK: - Table view data source

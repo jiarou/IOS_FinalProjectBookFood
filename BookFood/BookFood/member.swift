@@ -11,10 +11,12 @@ import Firebase
 import FirebaseAuth
 
 class member: UIViewController {
-
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-
+    var ref: DatabaseReference!
+    var brandName : String = ""
+    var admin : Bool = false
     
     @IBAction func submit(_ sender: Any) {
         if self.email.text == "" || self.password.text == "" {
@@ -33,11 +35,29 @@ class member: UIViewController {
             Auth.auth().signIn(withEmail: self.email.text!, password: self.password.text!) { (user, error) in
                 
                 if error == nil {
-                    
+                    self.ref = Database.database().reference()
+                    self.ref.child("users").child((self.email.text?.replacingOccurrences(of: ".", with: ","))!).observeSingleEvent(of: .value, with: { snapshot in
+                        if !snapshot.exists() { return }
+                        let value = snapshot.value as? NSDictionary
+                        if((value?["brandName"]) != nil){
+                            print((value?["brandName"])!)
+                            self.brandName = value?["brandName"] as? String ?? ""
+                            self.admin = value?["admin"] as? Bool ?? false
+                        }
+                        else{
+                            self.ref.child("users").child((self.email.text?.replacingOccurrences(of: ".", with: ","))!).setValue(["password": self.password.text])
+                        }
+                    })
                     print("You have successfully logged in")
                     //Go to the HomeViewController if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! ViewController
+                    vc.userEmail = self.email.text!
+                    let charIndex = self.email.text!.indexDistance(of: "@")!+1
+                    let index = self.email.text!.index(vc.userName.startIndex, offsetBy: charIndex)
+                    vc.userName = self.email.text!.substring(to: index)
+                    vc.brandName = self.brandName
+                    vc.admin = self.admin
+                    self.present(vc, animated: true, completion: nil)
                     
                 } else {
                     
@@ -52,18 +72,8 @@ class member: UIViewController {
             }
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Home"{
-        let Home = segue.destination as! ViewController
-        Home.userEmail = self.email.text!
-        let charIndex = self.email.text!.indexDistance(of: "@")!+1
-        let index = self.email.text!.index(Home.userName.startIndex, offsetBy: charIndex)
-        Home.userName = self.email.text!.substring(to: index)
-        }
-        
-    }
-
-
+    
+    
 }
 extension String {
     func indexDistance(of character: Character) -> Int? {

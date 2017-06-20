@@ -7,6 +7,9 @@
 //
 import UIKit
 import Moltin
+import Firebase
+
+
 
 class PaymentViewController: UITableViewController, TextEntryTableViewCellDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -39,6 +42,8 @@ class PaymentViewController: UITableViewController, TextEntryTableViewCellDelega
     let MAX_CVV_LENGTH = 4
     let MIN_CARD_LENGTH = 12
     let MAX_CARD_LENGTH = 19
+    var ref: DatabaseReference!
+    
     
     
     override func viewDidLoad() {
@@ -240,66 +245,129 @@ class PaymentViewController: UITableViewController, TextEntryTableViewCellDelega
     
     // MARK: - Moltin Order API
     fileprivate func completeOrder() {
+        ref = Database.database().reference()
+         var cartData:NSDictionary?
+         var cartProducts:NSDictionary?
+
+
         
         // Show some loading UI...
         SwiftSpinner.show("Completing Purchase")
         
-        let firstName = billingDictionary!["first_name"]! as String
-        let lastName = billingDictionary!["last_name"]! as String
+        //self.ref.child(<#T##pathString: String##String#>)
         
-        let orderParameters = [
-            "customer": ["first_name": firstName,
-                         "last_name":  lastName,
-                         "email":      emailAddress!],
-            "gateway": PAYMENT_GATEWAY,
-            "bill_to": self.billingDictionary!
-            ] as [AnyHashable: Any]
+//        let firstName = billingDictionary!["first_name"]! as String
+//        let lastName = billingDictionary!["last_name"]! as String
+//        
+//        let orderParameters = [
+//            "customer": ["first_name": firstName,
+//                         "last_name":  lastName,
+//                         "email":      emailAddress!],
+//            "gateway": PAYMENT_GATEWAY,
+//            "bill_to": self.billingDictionary!
+//            ] as [AnyHashable: Any]
+        billingDictionary?.updateValue(emailAddress!, forKey: "email")
         
-        Moltin.sharedInstance().cart.order(withParameters: orderParameters, success: { (response) -> Void in
-            // Order succesful
-            print("Order succeeded: \(response)")
+        
+        var orderID = self.ref.child("order").childByAutoId().key
+        
+        self.ref.child("order").child(orderID).child("user").setValue(billingDictionary)
+        self.ref.child("order").child(orderID).child("orderStatus").setValue("false")
+        //self.ref.child("order").child(orderID).child("timeToWait").setValue(timeToWait)
+        
+        
+        // Get the cart contents from Moltin API
+        Moltin.sharedInstance().cart.getContentsWithsuccess({ (response) -> Void in
+            // Got cart contents succesfully!
+            // Set local var's
+            cartData = response as NSDictionary?
+            //println(self.cartData)
             
-            // Extract the Order ID so that it can be used in payment too...
-            let orderId = NSDictionary(dictionary: response!).value(forKeyPath: "result.id") as! String
-            print("Order ID: \(orderId)")
+            cartProducts = cartData?.value(forKeyPath: "result.contents") as? NSDictionary
             
-            let paymentParameters = ["data": ["number": self.cardNumber!,
-                                              "expiry_month": self.selectedMonth!,
-                                              "expiry_year":  self.selectedYear!,
-                                              "cvv":          self.cvvNumber!
-                ]] as [AnyHashable: Any]
-            
-            Moltin.sharedInstance().checkout.payment(withMethod: self.PAYMENT_METHOD, order: orderId, parameters: paymentParameters, success: { (response) -> Void in
-                // Payment successful...
-                print("Payment successful: \(response)")
-                
-                
-                SwiftSpinner.hide()
-                
-                self.jumpToCartView(true)
-                
-                
-                
-                
-                
-            }) { (response, error) -> Void in
-                // Payment error
-                print("Payment error: \(error)")
-                SwiftSpinner.hide()
-                AlertDialog.showAlert("Payment Failed", message: "Payment failed - please try again", viewController: self)
-                
-                
+            var timeToWait: Int = 0
+
+            for var item in (cartProducts?.allKeys)!{
+                //var cartitem: NSDictionary = cartProducts![item] as! NSDictionary
+                let obj: NSDictionary = cartProducts?.value(forKey: item as! String) as! NSDictionary
+                if ((obj["time_to_wait"] as! Int) > timeToWait){
+                    timeToWait = obj["time_to_wait"] as! Int
+                }
             }
             
+            self.ref.child("order").child(orderID).child("timeToWait").setValue(timeToWait)
+
+            var cartforreal: Dictionary<String, Any> = [:]
+            for var food in (cartProducts?.allKeys)!{
+                let obj: NSDictionary = cartProducts?.value(forKey: food as! String) as! NSDictionary
+                var propertyOfFood: Dictionary<String, Any> = ["Brand": (obj["brand"] as! NSDictionary)["value"],
+                                                           "ProductPrice": obj["sale_price"],
+                                                           "ProductName": obj["title"],
+                                                           "ProductNumber" :obj["quantity"]]
+
+                cartforreal.updateValue(propertyOfFood, forKey: food as! String)
+                
+                //let obj: NSDictionary = cartProducts?.value(forKey: food as! String) as! NSDictionary
+                
+            }
+            self.ref.child("order").child(orderID).child("item").setValue(cartforreal)
             
-        }) { (response, error) -> Void in
-            // Order failed
-            print("Order error: \(error)")
-            SwiftSpinner.hide()
+        }, failure: { (response, error) -> Void in
+            //SwiftSpinner.hide()
             
-            AlertDialog.showAlert("Order Failed", message: "Order failed - please try again", viewController: self)
-            
-        }
+            AlertDialog.showAlert("Error", message: "Couldn't load cart", viewController: self)
+            print("Something went wrong...")
+            print(error)
+        })
+        SwiftSpinner.hide()
+
+//        Moltin.sharedInstance().cart.order(withParameters: orderParameters, success: { (response) -> Void in
+//            // Order succesful
+//            print("Order succeeded: \(response)")
+//            
+//            // Extract the Ogrder ID so that it can be used in payment too...
+//            let orderId = NSDictionary(dictionary: response!).value(forKeyPath: "result.id") as! String
+//
+//            print("Order ID: \(orderId)")
+//            
+//            
+//            let paymentParameters = ["data": ["number": self.cardNumber!,
+//                                              "expiry_month": self.selectedMonth!,
+//                                              "expiry_year":  self.selectedYear!,
+//                                              "cvv":          self.cvvNumber!
+//                ]] as [AnyHashable: Any]
+//            
+//            Moltin.sharedInstance().checkout.payment(withMethod: self.PAYMENT_METHOD, order: orderId, parameters: paymentParameters, success: { (response) -> Void in
+//                // Payment successful...
+//                print("Payment successful: \(response)")
+//                
+//                
+//                SwiftSpinner.hide()
+//                
+//                self.jumpToCartView(true)
+//                
+//                
+//                
+//                
+//                
+//            }) { (response, error) -> Void in
+//                // Payment error
+//                print("Payment error: \(error)")
+//                SwiftSpinner.hide()
+//                AlertDialog.showAlert("Payment Failed", message: "Payment failed - please try again", viewController: self)
+//                
+//                
+//            }
+//            
+//            
+//        }) { (response, error) -> Void in
+//            // Order failed
+//            print("Order error: \(error)")
+//            SwiftSpinner.hide()
+//            
+//            AlertDialog.showAlert("Order Failed", message: "Order failed - please try again", viewController: self)
+//            
+//        }
         
         
     }
