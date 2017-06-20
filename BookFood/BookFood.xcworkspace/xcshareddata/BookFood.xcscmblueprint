@@ -1,15 +1,17 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2B548D5DCEE1DE58A3B219B25107AF0505D51B32",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FF3EFD379B272CED0CCC95FAFD15BBD6BA6DEE0E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "537A4DC98A374E0E6E309E1314888454B2A6D35A" : 9223372036854775807,
+    "FF3EFD379B272CED0CCC95FAFD15BBD6BA6DEE0E" : 9223372036854775807,
     "2B548D5DCEE1DE58A3B219B25107AF0505D51B32" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "35A966A8-DA5A-4BF5-9110-DDE39FDD8F2C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "537A4DC98A374E0E6E309E1314888454B2A6D35A" : "",
+    "FF3EFD379B272CED0CCC95FAFD15BBD6BA6DEE0E" : "test\/",
     "2B548D5DCEE1DE58A3B219B25107AF0505D51B32" : "iOS_finalProject-master\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "BookFood",
@@ -25,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nick66551\/newmediawall.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "537A4DC98A374E0E6E309E1314888454B2A6D35A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nick66551\/IOS_FinalProjectBookFood.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FF3EFD379B272CED0CCC95FAFD15BBD6BA6DEE0E"
     }
   ]
 }

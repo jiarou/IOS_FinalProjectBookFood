@@ -21,7 +21,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var userName : String = ""
     var userEmail : String = ""
     var brandName : String = ""
-    var admin : Bool = false
+    var admin : Int = 0
     var ref:DatabaseReference!
     var  orders = [String]()
     var  status = [String]()
@@ -31,8 +31,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.Name.text = userName
-        checkAdmin()
-        print(self.brandName)
         ref = Database.database().reference().child("order")
         
         ref.observe(.childAdded, with: { (snapshot) in
@@ -64,8 +62,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             })
 
         })
-
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,14 +82,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
         }
         
-    }
-    func checkAdmin(){
-        if(self.admin==true){
-            // let backend = segue.destination as! BackendViewController
-            // backend.brandName =self.brandName
-            // let vc = self.storyboard?.instantiateViewController(withIdentifier: "Backend")
-            // self.present(vc!, animated: true, completion: nil)
-        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,7 +105,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return cell
     }
     
-
+    
+    
     
 }
 

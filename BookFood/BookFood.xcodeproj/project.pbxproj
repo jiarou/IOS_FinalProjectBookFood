@@ -55,6 +55,7 @@
 		99860708CF8D153369BE7E41 /* Pods_BookFood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A44B285CC5962275BF17F9 /* Pods_BookFood.framework */; };
 		D0EE226523FBFEBAB7B7C70D /* Pods_BookFoodUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0898E91C533E93E1C31C4176 /* Pods_BookFoodUITests.framework */; };
 		F719BA9E1EF0052300DEFCBE /* MemberData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719BA9D1EF0052300DEFCBE /* MemberData.swift */; };
+		F719BAA81EF9A14200DEFCBE /* BackendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F719BAA71EF9A14200DEFCBE /* BackendViewController.swift */; };
 		F7327F081EEC5CFA0027ABA7 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7327F071EEC5CFA0027ABA7 /* Register.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		B9A44B285CC5962275BF17F9 /* Pods_BookFood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookFood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E60FA9940EDDC41F37861BE0 /* Pods-BookFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookFood.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookFood/Pods-BookFood.release.xcconfig"; sourceTree = "<group>"; };
 		F719BA9D1EF0052300DEFCBE /* MemberData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberData.swift; sourceTree = "<group>"; };
+		F719BAA71EF9A14200DEFCBE /* BackendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackendViewController.swift; path = ../../../test/BookFood/BookFood/BackendViewController.swift; sourceTree = "<group>"; };
 		F7327F071EEC5CFA0027ABA7 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		F946FD2B940B6852F9B8F503 /* Pods-BookFoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookFoodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookFoodTests/Pods-BookFoodTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 				48B490CA1EB8E7AE00C8C7DE /* BookFood.xcdatamodeld */,
 				48F7A1091EE967D800F65BFE /* GoogleService-Info.plist */,
 				04D584EF1EF9605000D0DA61 /* RestaurantMapData.swift */,
+				F719BAA71EF9A14200DEFCBE /* BackendViewController.swift */,
 				04D584F01EF9605000D0DA61 /* VCMapView.swift */,
 				48B490F41EB8E7DE00C8C7DE /* FoodMap.swift */,
 				48B490F61EB8EAAF00C8C7DE /* RestaurantList.swift */,
@@ -593,6 +596,7 @@
 				48B490CC1EB8E7AE00C8C7DE /* BookFood.xcdatamodeld in Sources */,
 				042543DC1EF11FBE000943BE /* String+Numeric.swift in Sources */,
 				042543D11EF11FBE000943BE /* ProductDetailViewController.swift in Sources */,
+				F719BAA81EF9A14200DEFCBE /* BackendViewController.swift in Sources */,
 				042543D71EF11FBE000943BE /* CartTableViewCell.swift in Sources */,
 				48803E011EB9AC1400EDA617 /* SuccessOrder.swift in Sources */,
 				042543D81EF11FBE000943BE /* TextEntryTableViewCell.swift in Sources */,

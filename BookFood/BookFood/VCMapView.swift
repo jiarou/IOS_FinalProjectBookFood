@@ -9,7 +9,6 @@
 import Foundation
 import MapKit
 extension ViewController: MKMapViewDelegate {
-    
     // 1
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         if let annotation = annotation as? RestaurantMapData {
