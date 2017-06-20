@@ -16,7 +16,7 @@ class member: UIViewController {
     @IBOutlet weak var password: UITextField!
     var ref: DatabaseReference!
     var brandName : String = ""
-    var admin : Bool = false
+    var admin : Int = 0
     
     @IBAction func submit(_ sender: Any) {
         if self.email.text == "" || self.password.text == "" {
@@ -42,22 +42,27 @@ class member: UIViewController {
                         if((value?["brandName"]) != nil){
                             print((value?["brandName"])!)
                             self.brandName = value?["brandName"] as? String ?? ""
-                            self.admin = value?["admin"] as? Bool ?? false
+                            self.admin = value?["admin"] as? Int ?? 0
                         }
                         else{
                             self.ref.child("users").child((self.email.text?.replacingOccurrences(of: ".", with: ","))!).setValue(["password": self.password.text])
                         }
+                        print("You have successfully logged in")
+                        //Go to the HomeViewController if the login is sucessful
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! ViewController
+                        let backend = self.storyboard?.instantiateViewController(withIdentifier: "Backend") as! BackendViewController
+                        vc.userEmail = self.email.text!
+                        let charIndex = self.email.text!.indexDistance(of: "@")!+1
+                        let index = self.email.text!.index(vc.userName.startIndex, offsetBy: charIndex)
+                        vc.userName = self.email.text!.substring(to: index)
+                        backend.brandName = self.brandName
+                        if(self.admin==1){
+                            self.present(backend, animated: true, completion: nil)
+                        }
+                        else{
+                            self.present(vc, animated: true, completion: nil)
+                        }
                     })
-                    print("You have successfully logged in")
-                    //Go to the HomeViewController if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! ViewController
-                    vc.userEmail = self.email.text!
-                    let charIndex = self.email.text!.indexDistance(of: "@")!+1
-                    let index = self.email.text!.index(vc.userName.startIndex, offsetBy: charIndex)
-                    vc.userName = self.email.text!.substring(to: index)
-                    vc.brandName = self.brandName
-                    vc.admin = self.admin
-                    self.present(vc, animated: true, completion: nil)
                     
                 } else {
                     
